@@ -1,6 +1,8 @@
-# sub: a delicious way to organize programs
+# Sub: A Delicious Way to Organize Programs
 
 Sub is a model for setting up shell programs that use subcommands, like `git` or `rbenv` using bash. Making a sub does not require you to write shell scripts in bash, you can write subcommands in any scripting language you prefer.
+
+This is a slightly modified version of [Basecamp's sub](https://github.com/basecamp/sub).
 
 A sub program is run at the command line using this style:
 
@@ -41,7 +43,7 @@ who
 Of course, this is a simple example...but now `rush who` should work!
 
     $ rush who
-    qrush     console  Sep 14 17:15 
+    qrush     console  Sep 14 17:15
 
 You can run *any* executable in the `libexec` directly, as long as it follows the `NAME-SUBCOMMAND` convention. Try out a Ruby script or your favorite language!
 
