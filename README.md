@@ -140,6 +140,20 @@ fi
 
 Passing the `--complete` flag to this subcommand short circuits the real command, and then runs another subcommand instead. The output from your subcommand's `--complete` run is sent to your shell's autocompletion handler for you, and you don't ever have to once worry about how any of that works!
 
+For bash (zsh isn't yet supported), when there are no completions for a subcommand, the completion will fall through to the default bash completion provided the subcommand includes the following:
+
+``` bash
+#!/usr/bin/env bash
+set -e
+
+# Provide sub completions
+if [ "$1" = "--complete" ]; then
+  exit 0
+fi
+
+# lots more bash
+```
+
 Run the `init` subcommand after you've prepared your sub to get your sub loading automatically in your shell.
 
 ## Shortcuts
