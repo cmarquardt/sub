@@ -173,7 +173,7 @@ Now, `rush w` should run `libexec/rush-who`, and save you mere milliseconds of t
 
 Clone this repo:
 
-    git clone git://github.com/37signals/sub.git [name of your sub]
+    git clone https://github.com/cmarquardt/sub [name of your sub]
     cd [name of your sub]
     ./prepare.sh [name of your sub]
 
@@ -181,22 +181,26 @@ The prepare script will run you through the steps for making your own sub. Also,
 
 ## Install your sub
 
-So you've prepared your own sub, now how do you use it? Here's one way you could install your sub in your `$HOME` directory:
+So you've prepared your own sub and put it into its own git repository somewhere - how do you use it? Here's one way, installing your sub in some `[INSTALL_PATH]` directory:
 
     cd
-    git clone [YOUR GIT HOST URL]/sub.git .sub
+    git clone [YOUR GIT URL]/sub.git [INSTALL_PATH]
 
 For bash users:
 
-    echo 'eval "$($HOME/.sub/bin/sub init -)"' >> ~/.bash_profile
+    echo 'eval "$([INSTALL_PATH]/bin/sub init -)"' >> ~/.bash_profile
     exec bash
 
 For zsh users:
 
-    echo 'eval "$($HOME/.sub/bin/sub init -)"' >> ~/.zshenv
+    echo 'eval "$([INSTALL_PATH]/bin/sub init -)"' >> ~/.zshenv
     source ~/.zshenv
 
-You could also install your sub in a different directory, say `/usr/local`. This is just one way you could provide a way to install your sub.
+Alternatively, simply run
+
+    [INSTALL_PATH]/sub init
+
+which will provide the relevant instructions for your shell. Note that the sub may be installed in an arbitrary directory, say `$HOME/.sub` or even `/usr/local`; in any case, `sub init` will provide the correct instructions.
 
 ## License
 
