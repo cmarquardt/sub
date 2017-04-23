@@ -25,7 +25,20 @@ if [ "$NAME" != "sub" ]; then
     chmod a+x $file
   done
 
-  ln -s ../libexec/$SUBNAME bin/$SUBNAME
+  _uname=`uname`
+  case "$_uname" in
+    MSYS*)
+      mv ./share/$SUBNAME.bash bin/$SUBNAME
+      ;;
+    CYGWIN*)
+      mv ./share/$SUB_NAME.bash bin/$SUBNAME
+      ;;
+    *)
+      ln -s ../libexec/$SUBNAME bin/$SUBNAME
+      rm ./share/$SUBNAME.bash
+      ;;
+  esac
+
 fi
 
 rm README.md
