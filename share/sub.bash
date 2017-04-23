@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /usr/bin/env bash
 
 # Wrapper around the sub command for Windows
 # ------------------------------------------
